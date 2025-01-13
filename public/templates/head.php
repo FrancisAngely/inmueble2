@@ -19,6 +19,13 @@
         <link href="<?php echo baseUrl();?>/templates/fontawesome-free-6.6.0-web/css/all.css" rel="stylesheet" />
         
         <link href="<?php echo baseUrl();?>/templates/assets/libs/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+<style>
+            .help-block{
+                color:#ff0000;
+            }
+        
+        </style>
     </head>
 
     <body data-layout="horizontal">

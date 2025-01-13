@@ -98,5 +98,14 @@ class RolesController extends BaseController
          
           return redirect()->to('/roles');
     }
+   
     
+     public function delete()
+    {
+        $model=new RoleModel();
+        $id=$this->request->getvar('id');
+       
+        $model->where('id', $id)->delete();
+         return redirect()->to('/roles');
+    }
 }

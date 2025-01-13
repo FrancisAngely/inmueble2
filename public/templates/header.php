@@ -523,6 +523,25 @@
                                         
                                         </ul>
                                     </li>
+                                    <li class="has-submenu">
+                                        <a href="#"> <i class="mdi mdi-flip-horizontal"></i>Provincias
+                                        </a>
+                                        <ul class="submenu">
+                                            <li><a href="<?php echo baseUrl();?>/provincias">Listado</a></li>
+                                            <li><a href="<?php echo baseUrl();?>/provincias/nuevo">Nuevo</a></li>
+                                        
+                                        </ul>
+                                    </li>
+                                    <li class="has-submenu">
+                                        <a href="#"> <i class="mdi mdi-flip-horizontal"></i>Usuarios
+                                        </a>
+                                        <ul class="submenu">
+                                            <li><a href="<?php echo baseUrl();?>/usuarios">Listado</a></li>
+                                            <li><a href="<?php echo baseUrl();?>/usuarios/nuevo">Nuevo</a></li>
+                                        
+                                        </ul>
+                                    </li>
+                            
     
                                 </ul>
                                 <!-- End navigation menu -->

@@ -8,7 +8,7 @@ class UsuarioModel extends Model
 {
     //SELECT `id`, `id_roles`, `usuario`, `password`, `email`, `created_at`, `updated_at` FROM `usuarios` WHERE 1
     protected $table='usuarios';
-    protected $allowedFields=['id_roles','usuario','password','email'];
+    protected $allowedFields=['id_roles','usuario','password','email', 'created_at', 'updated_at'];
     
 }
 ?>

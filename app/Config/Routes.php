@@ -27,3 +27,20 @@ $routes->get('/roles/nuevo', 'RolesController::nuevo');
 $routes->match( ['get','post'],'/roles/crear', 'RolesController::crear');
 $routes->match( ['get','post'],'/roles/editar', 'RolesController::editar');
 $routes->match( ['get','post'],'/roles/actualizar', 'RolesController::actualizar');
+$routes->match( ['get','post'],'/roles/eliminar', 'RolesController::delete');
+
+//USUARIOS
+$routes->get('/usuarios', 'UsuariosController::index');
+$routes->get('/usuarios/nuevo', 'UsuariosController::nuevo');
+$routes->match( ['get','post'],'/usuarios/crear', 'UsuariosController::crear');
+$routes->match( ['get','post'],'/usuarios/editar', 'UsuariosController::editar');
+$routes->match( ['get','post'],'/usuarios/actualizar', 'UsuariosController::actualizar');
+$routes->match( ['get','post'],'/usuarios/eliminar', 'UsuariosController::delete');
+
+//PROVINCIAS
+$routes->get('/provincias', 'ProvinciasController::index');
+$routes->get('/provincias/nuevo', 'ProvinciasController::nuevo');
+$routes->match( ['get','post'],'/provincias/crear', 'ProvinciasController::crear');
+$routes->match( ['get','post'],'/provincias/editar', 'ProvinciasController::editar');
+$routes->match( ['get','post'],'/provincias/actualizar', 'ProvinciasController::actualizar');
+$routes->match( ['get','post'],'/provincias/eliminar', 'ProvinciasController::delete');

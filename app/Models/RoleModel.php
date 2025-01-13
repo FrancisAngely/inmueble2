@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class RoleModel extends Model
 {
     protected $table='roles';
-    protected $allowedFields=['role'];
+    protected $allowedFields=['role', 'created_at', 'updated_at'];
     
 }
 ?>
