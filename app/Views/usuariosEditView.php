@@ -20,7 +20,7 @@ $errors=validation_errors();
         else  $valor=$datos["usuario"]; 
         }
         ?>
-        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario" value="<?=$valor;?>">
+        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario" value="<?=rellenarDato($errors,$datos,"usuario");?>">
         <?php
           if(isset($errors["usuario"])) echo validation_show_error('usuario');  
         ?>
@@ -30,16 +30,9 @@ $errors=validation_errors();
     <div class="mb-3">
         <label for="password" class="form-label">password</label>
       
-        <?php
-        if(isset($errors["password"])) 
-            $valor=$datos["password"]; 
-        else { 
-        if(set_value("password")!="")  $valor=set_value("password");
-        else  $valor=$datos["password"]; 
-        }
-        ?>
         
-        <input type="text" class="form-control" id="password" name="password" placeholder="password" value="<?=  $valor;?>">
+        
+        <input type="text" class="form-control" id="password" name="password" placeholder="password" value="<?=rellenarDato($errors,$datos,"password");?>">
          <?php
           if(isset($errors["password"])) echo validation_show_error('password');  
         ?>
@@ -49,7 +42,7 @@ $errors=validation_errors();
             <div class="mb-3">
         <label for="email" class="form-label">email</label>
       
-        <input type="text" class="form-control" id="email" name="email" placeholder="email" value="<?=  $datos["email"];?>">
+        <input type="text" class="form-control" id="email" name="email" placeholder="email" value="<?=rellenarDato($errors,$datos,"email");?>">
     <?php
           if(isset($errors["email"])) echo validation_show_error('email');  
         ?>
@@ -57,15 +50,19 @@ $errors=validation_errors();
             
         <div class="mb-3">
         <label for="id_roles" class="form-label">Role</label>
-      <?php echo form_dropdown('id_roles',$optionsRoles, $rellenarDatos($errors,$datos,"id_roles"),'class="form-control" id="id_roles" ');?>
+      <?php echo form_dropdown('id_roles',$optionsRoles, rellenarDato($errors,$datos,"id_roles"),'class="form-control" id="id_roles" ');?>
             <?php
           if(isset($errors["id_roles"])) echo validation_show_error('id_roles');  
         ?> 
         </div>
+
+
         <div class="mb-3"> 
         <input type="submit" class="form-control" value="Aceptar" id="btnform11">
         </div>
-    </form>        
+
+    </form>
+        
          </div>
 </div>
 <?php include("templates/parte2.php");?>

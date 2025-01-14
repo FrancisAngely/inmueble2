@@ -12,6 +12,8 @@
         <script src="<?php echo baseUrl();?>/templates/assets/js/app.min.js"></script>
 
 <script src="<?php echo baseUrl();?>/templates/assets/libs/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo baseUrl();?>/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+
 
 <script>
 $( document ).ready(function() {
