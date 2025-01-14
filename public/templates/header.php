@@ -541,6 +541,16 @@
                                         
                                         </ul>
                                     </li>
+
+                                    <li class="has-submenu">
+                                        <a href="#"> <i class="mdi mdi-flip-horizontal"></i>Inmuebles Usos
+                                        </a>
+                                        <ul class="submenu">
+                                            <li><a href="<?php echo baseUrl();?>/inmuebles_usos">Listado</a></li>
+                                            <li><a href="<?php echo baseUrl();?>/inmuebles_usos/nuevo">Nuevo</a></li>
+                                        
+                                        </ul>
+                                    </li>
                             
     
                                 </ul>

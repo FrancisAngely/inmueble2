@@ -37,6 +37,17 @@ $routes->match( ['get','post'],'/usuarios/editar', 'UsuariosController::editar')
 $routes->match( ['get','post'],'/usuarios/actualizar', 'UsuariosController::actualizar');
 $routes->match( ['get','post'],'/usuarios/eliminar', 'UsuariosController::delete');
 
+//Inmuebles Usos
+
+//SELECT `id`, `id_inmuebles`, `fecha_apertura`, `fecha_cierre`, `comentario`, `created_at`, `updated_at` FROM `inmuebles_usos` WHERE 1
+
+$routes->get('/inmuebles_usos', 'Inmuebles_usosController::index');
+$routes->get('/inmuebles_usos/nuevo', 'Inmuebles_usosController::nuevo');
+$routes->match( ['get','post'],'/inmuebles_usos/crear', 'Inmuebles_usosController::crear');
+$routes->match( ['get','post'],'/inmuebles_usos/editar', 'Inmuebles_usosController::editar');
+$routes->match( ['get','post'],'/inmuebles_usos/actualizar', 'Inmuebles_usosController::actualizar');
+$routes->match( ['get','post'],'/inmuebles_usos/eliminar', 'Inmuebles_usosController::delete');
+
 //PROVINCIAS
 $routes->get('/provincias', 'ProvinciasController::index');
 $routes->get('/provincias/nuevo', 'ProvinciasController::nuevo');
@@ -44,3 +55,5 @@ $routes->match( ['get','post'],'/provincias/crear', 'ProvinciasController::crear
 $routes->match( ['get','post'],'/provincias/editar', 'ProvinciasController::editar');
 $routes->match( ['get','post'],'/provincias/actualizar', 'ProvinciasController::actualizar');
 $routes->match( ['get','post'],'/provincias/eliminar', 'ProvinciasController::delete');
+
+
