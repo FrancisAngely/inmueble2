@@ -37,53 +37,48 @@ class Inmuebles_usosController extends BaseController
     }
     
     
-     public function crear()
+    public function crear()
     {
-       
-        
-         
-         $rules=[
-         'id_inmuebles'=>[
-             'rules'=>'required',
-             'errors'=>[
-                 'required'=>'Debes seleccionar un inmueble',
-             ]
-         ],
-          'fecha_apertura'=>[
-             'rules'=>'required|valid_date',
-             'errors'=>[
-                 'required'=>'Debe seleccionar una fecha de apertura',
-                 'valid_date'=>'La fecha de apertura tiene un formato incorrecto',
-             ]
-         ],  
-      
-       ]; 
-        
-      $datos=$this->request->getPost(array_keys($rules));
+        $rules = [
+            'id_inmuebles' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes seleccionar un inmueble',
+                ]
+            ],
+            'fecha_apertura' => [
+                'rules' => 'required|valid_date',
+                'errors' => [
+                    'required' => 'Debe seleccionar una fecha de apertura',
+                    'valid_date' => 'La fecha de apertura tiene un formato incorrecto',
+                ]
+            ],
+        ];
     
-     if(!$this->validateData($datos,$rules)){
-         return redirect()->back()->withInput();
-     }     
-          //SELECT `id`, `id_roles`, `usuario`, `password`, `email`, `created_at`, `updated_at` FROM `usuarios` WHERE 1
-        $model=new UsuarioModel();
-        $id_roles=$this->request->getvar('id_roles');
-         $usuario=$this->request->getvar('usuario');
-         $password=$this->request->getvar('password');
-         $email=$this->request->getvar('email');
-         
-         $newData=[
-             'id_roles'=>$id_roles
-             ,'usuario'=>$usuario
-             ,'password'=>$password
-             ,'email'=>$email
-             ,'created_at'=>date("Y-m-d h:i:s")
-             ,'updated_at'=>date("Y-m-d h:i:s")
-         ];
-         
-         $model->save($newData);
-         
-         
-          return redirect()->to('/usuarios');
+        $datos = $this->request->getPost(array_keys($rules));
+    
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput();
+        }
+    
+        $model = new UsuarioModel();
+        $id_roles = $this->request->getVar('id_roles');
+        $usuario = $this->request->getVar('usuario');
+        $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT); // Hash de la contraseña
+        $email = $this->request->getVar('email');
+    
+        $newData = [
+            'id_roles' => $id_roles,
+            'usuario' => $usuario,
+            'password' => $password,
+            'email' => $email,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
+        ];
+    
+        $model->save($newData);
+    
+        return redirect()->to('/usuarios');
     }
     
     public function editar()
@@ -197,4 +192,9 @@ class Inmuebles_usosController extends BaseController
         
             
     }
+
 }
+
+
+
+
