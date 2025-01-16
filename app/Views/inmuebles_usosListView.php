@@ -31,12 +31,12 @@
                     <td><?php echo $d["comentario"];?></td>
                         
                         
-                    <td><a href="<?php echo baseUrl();?>/usuarios/editar?id=<?php echo $d["id"];?>"><i class="fa-solid fa-pen-to-square fa-2
+                    <td><a href="<?php echo baseUrl();?>/inmuebles_usos/editar?id=<?php echo $d["id"];?>"><i class="fa-solid fa-pen-to-square fa-2
                         x"></i></a>
                     &nbsp;&nbsp;
                      <a  href="#" data-id="<?php echo $d["id"];?>" class="borrar"><i class="fa-solid fa-trash text-danger"></i>
                         
-                <a href="modulo_usuarios_print.php?id=<?php echo $d["id"];?>"><i class="fa-solid fa-print"></i></a>
+                <a href="<?php echo baseUrl();?>/inmuebles_usos/imprimir?id=<?php echo $d["id"];?>"><i class="fa-solid fa-print"></i></a>
                     &nbsp;&nbsp;        
                 </a>    
                     </td>
@@ -90,19 +90,19 @@
                               $.ajax({
                                      data:{id:id},
                                      method:"POST",
-                                     url: "<?php echo baseUrl();?>/usuarios/eliminar", 
+                                     url: "<?php echo baseUrl();?>/inmuebles_usos/eliminar", 
                                      success: function(result){
                                          if(result==1){
                                             swalWithBootstrapButtons.fire({
                                               title: "Eliminado!",
-                                              text: "Participante dado de baja",
+                                              text: "Uso dado de baja",
                                               icon: "success"
                                             });
                                             padre.hide();
                                          }else{
                                              swalWithBootstrapButtons.fire({
                                               title: "No Eliminado!",
-                                              text: "Participante NO dado de baja",
+                                              text: "Uso NO dado de baja",
                                               icon: "error"
                                             });
                                          }

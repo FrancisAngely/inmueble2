@@ -49,7 +49,14 @@ $errors=validation_errors();
         ?>
         </div>
             
-        
+        <div class="mb-3">
+        <label for="documento" class="form-label">Documento</label>
+      
+        <input type="file" class="form-control" id="documento" name="documento" >
+    <?php
+          if(isset($errors["documento"])) echo validation_show_error('documento');  
+        ?>
+        </div> 
 
 
         <div class="mb-3"> 

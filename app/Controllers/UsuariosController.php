@@ -202,4 +202,26 @@ class UsuariosController extends BaseController
         
             
     }
+    
+     public function grafica()
+    {
+         $model=new UsuarioModel();
+         $usuarios=$model->datosgrafica();
+         $data["datos"]=$usuarios;
+         $datalabel=array();
+         $ticks=array();
+         if(count($usuarios)>0){
+             $i=1;
+             foreach($usuarios as $user){
+                 array_push($datalabel,"[".$i.",".$user["numUsuarios"]."]");
+                 array_push($ticks,"[".$i.",'".$user["role"]."']");
+                 $i++;
+             }
+         }
+         $datalabel=implode(",",$datalabel);
+         $ticks=implode(",",$ticks);
+         $data["datalabel"]=$datalabel;
+         $data["ticks"]=$ticks;
+       return view('graficaView',$data);
+    }
 }

@@ -21,6 +21,7 @@ class Validation extends BaseConfig
      * @var list<string>
      */
     public array $ruleSets = [
+        \App\Validation\Reglas::class,
         Rules::class,
         FormatRules::class,
         FileRules::class,
@@ -41,4 +42,6 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+    
 }
+

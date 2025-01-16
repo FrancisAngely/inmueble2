@@ -36,6 +36,7 @@ $routes->match( ['get','post'],'/usuarios/crear', 'UsuariosController::crear');
 $routes->match( ['get','post'],'/usuarios/editar', 'UsuariosController::editar');
 $routes->match( ['get','post'],'/usuarios/actualizar', 'UsuariosController::actualizar');
 $routes->match( ['get','post'],'/usuarios/eliminar', 'UsuariosController::delete');
+$routes->get('/usuarios/grafica', 'UsuariosController::grafica');
 
 $routes->match( ['get','post'],'/usuarios/exportar', 'UsuariosController::exportar');
 
@@ -47,7 +48,7 @@ $routes->match( ['get','post'],'/inmuebles_usos/editar', 'Inmuebles_usosControll
 $routes->match( ['get','post'],'/inmuebles_usos/actualizar', 'Inmuebles_usosController::actualizar');
 $routes->match( ['get','post'],'/inmuebles_usos/eliminar', 'Inmuebles_usosController::delete');
 $routes->match( ['get','post'],'/inmuebles_usos/exportar', 'Inmuebles_usosController::exportar');
-
+$routes->match( ['get','post'],'/inmuebles_usos/imprimir', 'Inmuebles_usosController::imprimir');
 
 //PROVINCIAS
 $routes->get('/provincias', 'ProvinciasController::index');

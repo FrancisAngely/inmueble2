@@ -538,6 +538,7 @@
                                         <ul class="submenu">
                                             <li><a href="<?php echo baseUrl();?>/usuarios">Listado</a></li>
                                             <li><a href="<?php echo baseUrl();?>/usuarios/nuevo">Nuevo</a></li>
+                                             <li><a href="<?php echo baseUrl();?>/usuarios/grafica">Gráfica</a></li>
                                         
                                         </ul>
                                     </li>
