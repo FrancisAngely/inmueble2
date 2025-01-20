@@ -1,7 +1,7 @@
-  <!-- Vendor js -->
 
 
-        <script src="<?php echo baseUrl();?>/templates/assets/js/vendor.min.js"></script>
+<div id="<?= $idGrafBarra;?>" style="height: 320px;"></div>
+ <script src="<?php echo baseUrl();?>/templates/assets/js/vendor.min.js"></script>
 
         <script src="<?php echo baseUrl();?>/templates/assets/libs/morris-js/morris.min.js"></script>
         <script src="<?php echo baseUrl();?>/templates/assets/libs/raphael/raphael.min.js"></script>
@@ -31,8 +31,22 @@
  <!-- Google Charts js -->
    <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
-$( document ).ready(function() {
-   $(".datatable").DataTable();
+
+$(function () {
+    var css_id = "#<?= $idGrafBarra;?>";
+    var data = [
+        {label: 'Num. usuarios', data: [<?= $datalabel;?>]},
+    
+    ];
+    var options = {
+        series: {stack: 0,
+                 lines: {show: false, steps: false },
+                 bars: {show: true, barWidth: 0.9, align: 'center',},},
+        xaxis: {ticks: [<?= $ticks;?>]},
+    };
+
+    $.plot($(css_id), data, options);
 });
+
 
 </script>

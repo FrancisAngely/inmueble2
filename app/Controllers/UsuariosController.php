@@ -229,6 +229,33 @@ class UsuariosController extends BaseController
          $model=new UsuarioModel();
          $usuarios=$model->datosgrafica();
          $data["datos"]=$usuarios;
+         $xValues=array();
+         $yValues=array();
+         $colores='"red", "green","blue","orange","brown"';
+        
+    //"red", "green","blue","orange","brown"
+         if(count($usuarios)>0){
+             $i=0;
+             foreach($usuarios as $user){
+                 array_push($yValues,$user["numUsuarios"]);
+                 array_push($xValues,"'".$user["role"]."'");
+                  
+                 $i++;
+             }
+         }
+         $yValues=implode(",",$yValues);
+         $xValues=implode(",",$xValues);
+         // $colores=implode(",",$colores);
+         $data["yValues"]=$yValues;
+         $data["xValues"]=$xValues;
+        $data["colores"]=$colores;
+       return view('graficaPieView',$data);
+    }
+     public function grafica3()
+    {
+         $model=new UsuarioModel();
+         $usuarios=$model->datosgrafica();
+         $data["datos"]=$usuarios;
          $datalabel=array();
          $ticks=array();
          if(count($usuarios)>0){
@@ -243,6 +270,60 @@ class UsuariosController extends BaseController
          $ticks=implode(",",$ticks);
          $data["datalabel"]=$datalabel;
          $data["ticks"]=$ticks;
-       return view('graficaView2',$data);
+       return view('graficaLineView',$data);
+    }
+    
+    
+     public function graficas()
+    {
+         $model=new UsuarioModel();
+         $usuarios=$model->datosgrafica();
+         $data["datos"]=$usuarios;
+         $datalabel=array();
+         $ticks=array();
+         if(count($usuarios)>0){
+             $i=1;
+             foreach($usuarios as $user){
+                 array_push($datalabel,"[".$i.",".$user["numUsuarios"]."]");
+                 array_push($ticks,"[".$i.",'".$user["role"]."']");
+                 $i++;
+             }
+         }
+         $datalabel=implode(",",$datalabel);
+         $ticks=implode(",",$ticks);
+         $data["datalabel"]=$datalabel;
+         $data["ticks"]=$ticks;
+         $data["idGrafBarra"]="id1";
+         $dataC["grafica1"]=view('graf_barraView',$data);
+          $data["idGrafBarra"]="id2";
+         $dataC["grafica2"]=view('graf_barraView',$data);
+         
+         $xValues=array();
+          $yValues=array();
+         $colores='"red", "green","blue","orange","brown"';
+        
+    //"red", "green","blue","orange","brown"
+         if(count($usuarios)>0){
+             $i=0;
+             foreach($usuarios as $user){
+                 array_push($yValues,$user["numUsuarios"]);
+                 array_push($xValues,"'".$user["role"]."'");
+                  
+                 $i++;
+             }
+         }
+         $yValues=implode(",",$yValues);
+         $xValues=implode(",",$xValues);
+         // $colores=implode(",",$colores);
+         $data["yValues"]=$yValues;
+         $data["xValues"]=$xValues;
+        $data["colores"]=$colores;
+         $data["idGrafPie"]="id3";
+       $dataC["grafica3"]=view('graf_pieView',$data);
+         
+         $data["idGrafLine"]="id4";
+        $dataC["grafica4"]=view('graf_LineView',$data);
+         
+       return view('graficasView',$dataC);
     }
 }

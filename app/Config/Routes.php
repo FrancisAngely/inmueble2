@@ -37,8 +37,11 @@ $routes->match( ['get','post'],'/usuarios/editar', 'UsuariosController::editar')
 $routes->match( ['get','post'],'/usuarios/actualizar', 'UsuariosController::actualizar');
 $routes->match( ['get','post'],'/usuarios/eliminar', 'UsuariosController::delete');
 $routes->get('/usuarios/grafica', 'UsuariosController::grafica');
-$routes->get('/usuarios/grafica', 'UsuariosController::grafica2');
+$routes->get('/usuarios/grafica2', 'UsuariosController::grafica2');
 
+$routes->get('/usuarios/grafica3', 'UsuariosController::grafica3');
+
+$routes->get('/usuarios/graficas', 'UsuariosController::graficas');
 
 $routes->match( ['get','post'],'/usuarios/exportar', 'UsuariosController::exportar');
 
